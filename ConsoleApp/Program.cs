@@ -14,9 +14,9 @@ namespace ConsoleApp
         {
             var host = CreateHostBuilder(args).Build();
 
-            var service = host.Services.GetService<IAliquotService>();
+            var service = host.Services.GetService<ICalculadorInss>();
 
-            service.SetAliquot(2012, 1300);
+            service.CalcularDesconto(new DateTime(2012, 1, 1), 1500);
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

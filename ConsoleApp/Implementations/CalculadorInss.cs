@@ -1,9 +1,5 @@
 ﻿using ConsoleApp.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleApp.Implementations
 {
@@ -18,7 +14,10 @@ namespace ConsoleApp.Implementations
 
         public decimal CalcularDesconto(DateTime data, decimal salario)
         {
-            throw new NotImplementedException();
+            if (aliquotService.HasAliquot(data.Year, salario))
+                return aliquotService.Celling;
+
+            return (salario * aliquotService.Aliquot) / 100;
         }
     }
 }
